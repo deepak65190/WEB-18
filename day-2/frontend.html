@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body{
+            background-color: aliceblue;
+        }
+          h2{
+              margin-bottom: 20px;
+            margin-left: 70%;
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            color:rgb(33 126 242);
+            padding: 10px;
+            letter-spacing: 2px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        }
+        #con2{
+            
+            margin: auto;
+            width: 80%;
+            height: auto;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(auto,auto);
+            gap: 20px;
+        }
+        img{
+            width: 100%;
+            border-radius: 10px 10px 0px 0px;
+        }
+        p,h3{
+            text-align: center;
+        }
+        .pho{
+            display: block;
+            width: 50%;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+   
+    <div id="con">
+        <div><a href="navbar.html"><h1>Home</h1></a></div>
+        <div> <a href="backend.html"><h1>Backend</h1></a></div>
+        <div><a href="frontend.html"><h1>Frontend</h1></a></div>
+    </div>
+  <h2>  Frontend</h2>
+  <div id="con2"></div>
+</body>
+</html>
+<script>
+    var investorArr= JSON.parse(localStorage.getItem("investorsData"))
+    investorArr.forEach(function(ele){
+  
+  var box = document.createElement("div")
+var photo = document.createElement("img")
+photo.src = ele. investorImg;
+
+
+var name1 = document.createElement("h3")
+name1.innerText= ele. investorName ;
+
+var post = document.createElement("p")
+post.innerText= ele.investorRole ;
+
+var logo1 = document.createElement("img")
+logo1.src= ele.investorCompanyLogo
+logo1.setAttribute("class","pho")
+box.append(photo,name1,post,logo1)
+  document.querySelector("#con2").append(box)
+
+}) ;
+</script>

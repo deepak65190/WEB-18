@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backend</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        h2{
+           margin-bottom: 20px;
+            margin-left: 43%;
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            color:rgb(33 126 242);
+            padding: 10px;
+            letter-spacing: 2px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        }
+        form{
+            margin-top: 50px;
+            width: 20%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(5,auto);
+            gap: 10px;
+        }
+        form>input{
+            border-radius: 10px;
+            border-color: none;
+            padding: 10px;
+            color: black;
+        }
+      
+    </style>
+</head>
+<body>
+    <div id="con">
+        <div><a href="navbar.html"><h1>Home</h1></a></div>
+        <div> <a href="backend.html"><h1>Backend</h1></a></div>
+        <div><a href="frontend.html"><h1>Frontend</h1></a></div>
+    </div>
+    <h2>Backend</h2>
+    <form id="investorForm">
+        <input id="name" type="text" placeholder="enter name">
+        <input id="imgURL" type="url" placeholder="enter image url">
+        <input id="companyLogo" type="url" placeholder="enter company logo url">
+        <input id="role" type="text" placeholder="enter roll">
+       <input type="submit" value="SUBMIT">
+    </form>
+   
+</body>
+</html>
+<script>
+    document.querySelector("#investorForm").addEventListener("submit",investorsFun) ;
+      var investorArr = JSON.parse(localStorage.getItem("investorsData"))||[] ; 
+      function investorsFun(){
+          event.preventDefault();
+
+        var investorOBJ = {
+          
+            investorImg: investorForm.imgURL.value,
+            investorName: investorForm.name.value,
+            investorRole: investorForm.role.value,
+            investorCompanyLogo: investorForm.companyLogo.value,
+        };
+        investorArr.push(investorOBJ );
+        
+        localStorage.setItem("investorsData",JSON.stringify(investorArr))
+      }
+</script>
