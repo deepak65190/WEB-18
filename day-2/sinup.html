@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <h1>Wecome to signUp</h1>
+    <form >
+        <input id="email" type="text " placeholder="enter email">
+        <input type="password"  id="pass" placeholder="enter password">
+        <input  id = "user" type="text" placeholder="enter user name">
+        <input type="submit" />
+    </form>
+    
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", signUpFun);
+  
+    var userData = JSON.parse(localStorage.getItem("userCreds"))||[]
+    function signUpFun() {
+      event.preventDefault();
+  
+      var userObj = {
+        email: document.querySelector("#email").value,
+        password: document.querySelector("#pass").value,
+        userName: document.querySelector("#user").value,
+      };
+   
+      userData.push(userObj);
+   
+      localStorage.setItem("userCreds",JSON.stringify(userData))
+  
+    }
+  </script>
